@@ -13,15 +13,15 @@ describe 'Usuario visita tela inicial' do
     
     it 'e vê os galpões cadastrados' do
         #Arrange
-
-        #cadastrar dois galpoes: Rio e Maceió
-        Warehouse.create(name:'Rio', code:'SDU', city:'Rio de Janeiro', area: 60_000)
-        Warehouse.create(name:'Maceió', code:'MCZ', city:'Maceio', area: 50_000)
+        Warehouse.create(name:'Rio', code:'SDU', city:'Rio de Janeiro', area: 60_000,
+                            address: 'Avenida do Porto, 1000', cep: '20000-000', description: 'Galpão do Rio')
+        Warehouse.create(name:'Maceió', code:'MCZ', city:'Maceio', area: 50_000, 
+                            address: 'Avenida Atlantica, 50', cep: '80000-000', description: 'Perto do Aeroporto')
+        
         #Act
         visit(root_path)
 
         #Assert
-        #garantir que vejo na tela os galpoes Rio e Maceió
         expect(page).not_to have_content('Não existem galpões cadastrados')
         expect(page).to have_content('Rio')
         expect(page).to have_content('Código: SDU')
@@ -42,6 +42,6 @@ describe 'Usuario visita tela inicial' do
         visit(root_path)
 
         #Assert
-        expect(page).to have_content ('Não existem galpões cadastrados')
+        expect(page).to have_content('Não existem galpões cadastrados')
     end 
 end
