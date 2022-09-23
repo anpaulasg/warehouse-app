@@ -1,0 +1,32 @@
+<section id="suppliers">
+
+<h2> Fornecedores </h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Localização</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @suppliers.each do |s| %>
+        <tr>
+            <td><%= s.brand_name %></td>
+            <td><%= s.city %> - <%= s.state %></td> 
+        </tr>
+        <%end%>
+    </tbody>
+</table>
+
+<% @suppliers.each do |s| %>
+
+    <%= s.brand_name%>
+    <%= s.city %> - <%= s.state%> 
+<%end%>
+
+<% if @suppliers.empty? %>
+        <p>Não existem fornecedores cadastrados. </p>
+    <% end %>
+</section>
+
