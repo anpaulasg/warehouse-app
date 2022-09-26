@@ -13,7 +13,7 @@ pt-BR:
         cep: 'CEP'
         area: 'Área'
       supplier: 
-        brand_name: 'Nome Fantasia '
+        brand_name: 'Nome Fantasia'
         corporate_name: 'Razão Social'
         registration_number: 'CNPJ'
         full_address: 'Endereço'
