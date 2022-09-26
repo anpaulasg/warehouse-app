@@ -1,6 +1,4 @@
-<section id="suppliers">
-
-<h2> Fornecedores </h2>
+<h1> Fornecedores </h1>
 
 <table>
     <thead>
@@ -12,21 +10,16 @@
     <tbody>
         <% @suppliers.each do |s| %>
         <tr>
-            <td><%= s.brand_name %></td>
+            <td><%= link_to(s.brand_name, s)%></td>
             <td><%= s.city %> - <%= s.state %></td> 
         </tr>
         <%end%>
     </tbody>
 </table>
 
-<% @suppliers.each do |s| %>
-
-    <%= s.brand_name%>
-    <%= s.city %> - <%= s.state%> 
-<%end%>
-
 <% if @suppliers.empty? %>
-        <p>Não existem fornecedores cadastrados. </p>
+        <p>Não existem fornecedores cadastrados.</p>
     <% end %>
-</section>
+
+<%= link_to 'Cadastrar Fornecedor', new_supplier_path %>
 
