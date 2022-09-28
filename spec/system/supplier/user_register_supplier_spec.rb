@@ -30,7 +30,7 @@ describe 'Usuário cadastra um fornecedor' do
         click_on('Cadastrar Fornecedor')
         fill_in('Nome Fantasia', with: 'Flor de Lima')
         fill_in('Razão Social', with: 'FLOR DE LIMA LTDA')
-        fill_in('CNPJ', with: '2958274000113')
+        fill_in('CNPJ', with: '09582740001134')
         fill_in('Endereço', with: 'Avenida das Américas, 100')
         fill_in('Cidade', with: 'Rio de Janeiro')
         fill_in('Estado', with: 'RJ')
@@ -41,7 +41,7 @@ describe 'Usuário cadastra um fornecedor' do
         #Assert
         expect(page).to have_content('Fornecedor cadastrado com sucesso')
         expect(page).to have_content('FLOR DE LIMA LTDA')
-        expect(page).to have_content('Documento: 2958274000113')
+        expect(page).to have_content('Documento: 09582740001134')
         expect(page).to have_content('E-mail: contato@flordelima.com.br')  
     end 
 

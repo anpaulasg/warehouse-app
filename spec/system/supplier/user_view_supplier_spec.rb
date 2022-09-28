@@ -16,7 +16,7 @@ describe 'Usuário vê lista de fornecedores' do
 
     it 'com sucesso' do
         #Arrange
-        Supplier.create!(corporate_name: 'FLOR DE LIMA LTDA', brand_name: 'Flor de Lima', registration_number:'2958274000113', full_address: 'Avenida das Américas, 100', city: 'Rio de Janeiro', 
+        Supplier.create!(corporate_name: 'FLOR DE LIMA LTDA', brand_name: 'Flor de Lima', registration_number:'09582740001134', full_address: 'Avenida das Américas, 100', city: 'Rio de Janeiro', 
                             state:'RJ', email: 'contato@flordelima.com.br', telephone: '2198180045')
 
         #Act
