@@ -1,11 +1,10 @@
-<section id="warehouses">
-    <h2>Galpões</h2> 
+<h1>Galpões</h1>   
     <div>
         <%=link_to('Cadastrar Galpão', new_warehouse_path)%>
     </div>
     <% @warehouses.each do |w| %>
         <div>
-            <h3><%= link_to(w.name, w)%></h3>
+            <h2><%= link_to(w.name, w)%></h2>
             <dl>
                 <dt>Código:</dt>
                 <dd><%= w.code %></dd>
@@ -22,4 +21,3 @@
     <% if @warehouses.empty? %>
         <p>Não existem galpões cadastrados</p>
     <% end %>
-</section> 
