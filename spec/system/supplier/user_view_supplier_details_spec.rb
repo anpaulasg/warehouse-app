@@ -14,7 +14,7 @@ describe 'Usuário vê detalhes do fornecedor ' do
 
         #Assert
         expect(page).to have_content('FLOR DE LIMA LTDA')
-        expect(page).to have_content('Documento: 09582740001134')
+        expect(page).to have_content('CNPJ: 09582740001134')
         expect(page).to have_content('Endereço: Avenida das Américas, 100, Rio de Janeiro - RJ')
         expect(page).to have_content('E-mail: contato@flordelima.com.br')
         expect(page).to have_content('Telefone: 2198180045')

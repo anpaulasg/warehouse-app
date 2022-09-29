@@ -41,7 +41,7 @@ describe 'Usuário cadastra um fornecedor' do
         #Assert
         expect(page).to have_content('Fornecedor cadastrado com sucesso')
         expect(page).to have_content('FLOR DE LIMA LTDA')
-        expect(page).to have_content('Documento: 09582740001134')
+        expect(page).to have_content('CNPJ: 09582740001134')
         expect(page).to have_content('E-mail: contato@flordelima.com.br')  
     end 
 
