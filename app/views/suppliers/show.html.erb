@@ -12,10 +12,17 @@
     <dd><%= @supplier.telephone%></dd>
 </dl>
 
+<h2> Produtos deste Fornecedor</h2>
+<div>
+    <dl>
+    <% @product_model.each do |pm| %>
+        <dt><strong><%=link_to(pm.name, pm)%></strong></dt>
+    <%end%>
+    </dl>
+
 <div>
     <%= link_to('Editar', edit_supplier_path(@supplier))%>
 </div>
-
 <div>
     <%= link_to('Voltar', suppliers_path)%>
 </div>
