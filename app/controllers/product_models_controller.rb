@@ -50,6 +50,4 @@ class ProductModelsController < ApplicationController
     def set_supplier
         @suppliers = Supplier.all
     end 
-
-
 end 
