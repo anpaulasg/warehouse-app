@@ -3,8 +3,9 @@ require 'rails_helper'
 describe 'Usuario visita tela inicial' do
     it 'e vê o nome da app' do
         #Arrange
-
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         #Act
+        login_as(user)
         visit(root_path)
 
         #Assert
@@ -13,12 +14,14 @@ describe 'Usuario visita tela inicial' do
     
     it 'e vê os galpões cadastrados' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         Warehouse.create(name:'Rio', code:'SDU', city:'Rio de Janeiro', area: 60_000,
                             address: 'Avenida do Porto, 1000', cep: '20000-000', description: 'Galpão do Rio')
         Warehouse.create(name:'Maceió', code:'MCZ', city:'Maceio', area: 50_000, 
                             address: 'Avenida Atlantica, 50', cep: '80000-000', description: 'Perto do Aeroporto')
         
         #Act
+        login_as(user)
         visit(root_path)
 
         #Assert
@@ -37,8 +40,9 @@ describe 'Usuario visita tela inicial' do
 
     it 'e não tem galpões cadastrados' do
         #Arrange
-
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         #Act
+        login_as(user)
         visit(root_path)
 
         #Assert

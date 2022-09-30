@@ -1,10 +1,23 @@
 require 'rails_helper'
 
 describe 'Usuário vê modelos de produtos' do
+
+    it 'se estiver autenticado' do
+        #Arrange
+
+        #Act
+        visit(root_path)
+        within('nav') do
+            click_on('Modelos de Produtos')
+        end 
+        #Assert
+        expect(current_path).to eq(new_user_session_path)
+    end 
     it 'a partir do menu' do
         #Arrange
-        
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Modelos de Produtos')
@@ -16,7 +29,7 @@ describe 'Usuário vê modelos de produtos' do
 
     it 'com sucesso' do
         #Arrange
-        
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number:'07317108000151', full_address: 'Avenida das Nações Unidas, 1000', 
                                     city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br', telephone: '2198180045')
 
@@ -26,6 +39,7 @@ describe 'Usuário vê modelos de produtos' do
                             sku: 'SOU 71-SAMSU-NOI77', supplier: supplier)
 
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Modelos de Produtos')
@@ -41,13 +55,14 @@ describe 'Usuário vê modelos de produtos' do
 
     it 'não existem produtos cadastrados' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
 
         #Act
+        login_as(user)
         visit(root_path)
         within('nav') do
             click_on('Modelos de Produtos')
         end 
-
          #Assert
         expect(page).to have_content('Nenhum modelo de produto cadastrado.')
     end 
@@ -55,12 +70,14 @@ describe 'Usuário vê modelos de produtos' do
     it 'na tela de detalhes de um fornecedor' do 
         
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number:'07317108000151', full_address: 'Avenida das Nações Unidas, 1000', 
             city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br', telephone: '2198180045')
 
         ProductModel.create!(name: 'TV 32', weight: 8000, width: 70, height: 45, depth: 10,
         sku: 'TV32-SAMSU-XPTO90', supplier: supplier)
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Fornecedores')
         click_on('Samsung')

@@ -4,9 +4,11 @@ describe 'Usuário edita um galpão' do
     
     it 'a partir da página de detalhes' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         warehouse = Warehouse.create!(name:'Rio', code:'SDU', city:'Rio de Janeiro', area: 60_000,
                                         address: 'Avenida do Porto, 1000', cep: '20000-000', description: 'Galpão do Rio')
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Rio')
         click_on('Editar')
@@ -24,10 +26,12 @@ describe 'Usuário edita um galpão' do
 
     it 'com sucesso' do
     #Arrange
+    user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
     warehouse = Warehouse.create!(name:'Rio', code:'SDU', city:'Rio de Janeiro', area: 60_000,
                                  address: 'Avenida do Porto, 1000', cep: '20000-000', description: 'Galpão do Rio')
     
     #Act
+    login_as(user)
     visit(root_path)
     click_on('Rio')
     click_on('Editar')
@@ -45,10 +49,12 @@ describe 'Usuário edita um galpão' do
 
     it 'e mantém os campos obrigatórios' do
     #Arrange
+    user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
     warehouse = Warehouse.create!(name:'Rio', code:'SDU', city:'Rio de Janeiro', area: 60_000,
                                   address: 'Avenida do Porto, 1000', cep: '20000-000', description: 'Galpão do Rio')
 
     #Act
+    login_as(user)
     visit(root_path)
     click_on('Rio')
     click_on('Editar')

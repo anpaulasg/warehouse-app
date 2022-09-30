@@ -4,12 +4,14 @@ describe 'Usuário edita dados de um modelo de produto' do
     
     it 'a partir da página de detalhes' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number:'07317108000151', full_address: 'Avenida das Nações Unidas, 1000', 
             city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br', telephone: '2198180045')
         
         ProductModel.create!(name: 'Televisão', weight: 8000, width: 70, height: 45, depth: 10,
                              sku: 'TV32-SAMSU-XPTO90', supplier: supplier)
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Modelos de Produtos')
         click_on('Televisão')
@@ -28,11 +30,13 @@ describe 'Usuário edita dados de um modelo de produto' do
 
     it 'com sucesso' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number:'07317108000151', full_address: 'Avenida das Nações Unidas, 1000', 
                                     city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br', telephone: '2198180045')
 
         ProductModel.create!(name: 'Televisão', weight: 8000, width: 70, height: 45, depth: 10, sku: 'TV32-SAMSU-XPTO90', supplier: supplier)
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Modelos de Produtos')
         click_on('Televisão')
@@ -47,12 +51,14 @@ describe 'Usuário edita dados de um modelo de produto' do
 
     it ' e mantém campos obrigatórios' do
         #Arrange
+        user = User.create!(name: 'Ana', email: 'ana@email.com', password:'password')
         supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number:'07317108000151', full_address: 'Avenida das Nações Unidas, 1000', 
                                     city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br', telephone: '2198180045')
 
         ProductModel.create!(name: 'Televisão', weight: 8000, width: 70, height: 45, depth: 10, sku: 'TV32-SAMSU-XPTO90', supplier: supplier)
 
         #Act
+        login_as(user)
         visit(root_path)
         click_on('Modelos de Produtos')
         click_on('Televisão')
