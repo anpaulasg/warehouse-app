@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+
+    def index
+        @orders = current_user.orders 
+    end 
+    
     def new
         @order = Order.new 
         @warehouses = Warehouse.all
@@ -15,5 +20,10 @@ class OrdersController < ApplicationController
     
     def show
         @order = Order.find(params[:id])
+    end 
+
+    def search
+        @code = params["query"]
+        @orders = Order.where("code LIKE ?", "%#{@code}%")
     end 
 end 
